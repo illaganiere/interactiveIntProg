@@ -1,0 +1,44 @@
+<html>
+  <style>
+    .img {
+      width: 400px;
+      height: auto;
+      position: absolute;
+      top: 50px;
+      left: 0;
+      display: none;
+    }
+  </style>
+
+  <body>
+    <button id="start">Start</button>
+    <image class="img" src="lab9-guy-walking.gif" id="img"></image>
+  </body>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      var img = $("#img");
+      $("#start").click(function () {
+        img.fadeIn(1000, function () {
+          img.animate(
+            {
+              left: $(window).width() - 400,
+            },
+            3000,
+            function () {
+              img.animate(
+                {
+                  left: "0px",
+                },
+                3000,
+                function () {
+                  img.fadeOut(1000);
+                }
+              );
+            }
+          );
+        });
+      });
+    });
+  </script>
+</html>
