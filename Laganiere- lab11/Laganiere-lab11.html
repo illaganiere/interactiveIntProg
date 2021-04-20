@@ -1,0 +1,66 @@
+<html>
+<head>
+</head>
+<body>
+<h2>Lab 11</h2>
+
+Enter a string: <input type="text" id="dataEntered" >
+<button type="button" onclick="printInputValue()">Submit</button>
+<br /><br />
+Search for this: <input type="text" id="search">
+<button type="button" onclick="Search()">Search</button>
+<br /><br />
+<button type="button" id="sort" onclick="Sort()">Sort the Array</button> <button
+type="button" id="reverse" onclick="Reverse()">Reverse the Array</button>
+<br /><br />
+<strong>My Array Output</strong><br/>
+<span id="results" autocomplete="off"> </span>
+
+
+<script>
+var str="";
+var x = 0;
+var array = Array();
+
+function printInputValue(){
+
+array[x] = document.getElementById("dataEntered").value;
+x++;
+var e="";
+for (var y=0; y<array.length; y++)
+{
+e =e+" "+ array[y] ;
+}
+  
+document.getElementById("results").textContent=e;
+
+}
+function Search()
+{
+var index="";
+var substring=document.getElementById("search").value;
+for (var y=0; y<array.length; y++)
+{
+index = array[y].indexOf(substring) ;
+document.getElementById("results").textContent="Sub string "+substring+" Found at "+index +" in the string "+array[y];
+}
+
+}
+function Sort()
+{
+var sortarray="";
+sortarray = array.sort();
+document.getElementById("results").textContent="Sorted Array-"+""+sortarray;
+}
+function Reverse()
+{
+var reversearray="";
+reversearray = array.reverse();
+
+document.getElementById("results").textContent="Reversed Array-"+""+reversearray;
+
+}
+
+</script>
+
+</body></html>
